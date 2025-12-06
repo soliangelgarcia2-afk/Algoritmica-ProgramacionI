@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio de Estructuras de Control</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            padding: 15px;
+            min-height: 100vh;
+        }
+        
+        .container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        h1 {
+            color: #333;
+            text-align: center;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .input-group {
+            margin: 15px 0;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #555;
+            font-size: 0.95rem;
+        }
+        
+        input, select {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+        
+        input:focus, select:focus {
+            outline: none;
+            border-color: #4CAF50;
+        }
+        
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 14px 30px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            width: 100%;
+            margin-top: 10px;
+            transition: background-color 0.3s;
+        }
+        
+        button:hover {
+            background-color: #45a049;
+        }
+        
+        button:active {
+            transform: scale(0.98);
+        }
+        
+        .resultado {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #e7f3fe;
+            border-left: 4px solid #2196F3;
+            border-radius: 5px;
+            display: none;
+            word-wrap: break-word;
+        }
+        
+        .resultado h3 {
+            margin-top: 0;
+            margin-bottom: 15px;
+            color: #2196F3;
+            font-size: 1.2rem;
+        }
+        
+        .resultado p {
+            margin: 10px 0;
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+        
+        /* Responsive para tablets */
+        @media (min-width: 768px) {
+            body {
+                padding: 30px;
+            }
+            
+            .container {
+                padding: 30px;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .resultado h3 {
+                font-size: 1.4rem;
+            }
+            
+            .resultado p {
+                font-size: 1rem;
+            }
+        }
+        
+        /* Responsive para pantallas grandes */
+        @media (min-width: 1024px) {
+            body {
+                padding: 50px;
+            }
+            
+            .container {
+                padding: 40px;
+            }
+        }
+        
+        /* Responsive para móviles pequeños */
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.3rem;
+            }
+            
+            input, select, button {
+                font-size: 14px;
+                padding: 10px;
+            }
+            
+            .resultado p {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1> Analizador de Números</h1>
+        
+        <div class="input-group">
+            <label for="numeros">Ingresa números separados por comas:</label>
+            <input type="text" id="numeros" placeholder="Ejemplo: 5, 12, 8, 3, 15, 20">
+        </div>
+        
+        <div class="input-group">
+            <label for="operacion">Selecciona una operación:</label>
+            <select id="operacion">
+                <option value="suma">Sumar todos</option>
+                <option value="pares">Contar pares</option>
+                <option value="mayores">Mayores a 10</option>
+                <option value="categoria">Categorizar</option>
+            </select>
+        </div>
+        
+        <button onclick="analizar()">Analizar</button>
+        
+        <div class="resultado" id="resultado"></div>
+    </div>
+
+    <script>
+        function analizar() {
+            const input = document.getElementById('numeros').value;
+            const operacion = document.getElementById('operacion').value;
+            debugger
+            const resultado = document.getElementById('resultado');
+            
+            // IF-ELSE: Validar que hay entrada
+            if (input.trim() === '') {
+                alert('Por favor ingresa algunos números');
+                return;
+            } else {
+                resultado.style.display = 'block';
+            }
+            
+            // Convertir entrada a array de números
+            const numeros = input.split(',').map(n => parseInt(n.trim())).filter(n => !isNaN(n));
+            
+            let html = '<h3>Resultados:</h3>';
+           
+             // SWITCH: Decidir qué operación realizar
+            switch(operacion) {
+                case 'suma':
+                    html += realizarSuma(numeros);
+                    break;
+                case 'pares':
+                    html += contarPares(numeros);
+                    break;
+                case 'mayores':
+                    html += mayoresA10(numeros);
+                    break;
+                case 'categoria':
+                    html += categorizar(numeros);
+                    break;
+                default:
+                    html += '<p>Operación no válida</p>';
+            }
+            
+            resultado.innerHTML = html;
+        }
+        
+        // Función usando WHILE
+        function realizarSuma(arr) {
+            let suma = 0;
+            let i = 0;
+            
+            while (i < arr.length) {
+                suma += arr[i];
+                i++;
+            }
+            
+            return `<p><strong>Suma total:</strong> ${suma}</p>
+                    <p><strong>Números analizados:</strong> ${arr.join(', ')}</p>`;
+        }
+        
+        // Función usando DO-WHILE
+        function contarPares(arr) {
+            let pares = 0;
+            let i = 0;
+            
+            if (arr.length === 0) {
+                return '<p>No hay números para analizar</p>';
+            }
+            
+            do {
+                if (arr[i] % 2 === 0) {
+                    pares++;
+                }
+                i++;
+            } while (i < arr.length);
+            
+            return `<p><strong>Números pares encontrados:</strong> ${pares}</p>
+                    <p><strong>Total de números:</strong> ${arr.length}</p>`;
+        }
+        
+        // Función usando FOR
+        function mayoresA10(arr) {
+            let mayores = [];
+            
+            for (let i = 0; i < arr.length; i++) {
+                if (arr[i] > 10) {
+                    mayores.push(arr[i]);
+                }
+            }
+            
+            if (mayores.length === 0) {
+                return '<p>No hay números mayores a 10</p>';
+            }
+            
+            return `<p><strong>Números mayores a 10:</strong> ${mayores.join(', ')}</p>
+                    <p><strong>Cantidad:</strong> ${mayores.length}</p>`;
+        }
+        
+        // Función usando FOREACH
+        function categorizar(arr) {
+            let categorias = {
+                pequeños: [],
+                medianos: [],
+                grandes: []
+            };
+            
+            arr.forEach(function(num) {
+                if (num < 10) {
+                    categorias.pequeños.push(num);
+                } else if (num >= 10 && num < 20) {
+                    categorias.medianos.push(num);
+                } else {
+                    categorias.grandes.push(num);
+                }
+            });
+            
+            return `<p><strong>Pequeños (&lt;10):</strong> ${categorias.pequeños.length > 0 ? categorias.pequeños.join(', ') : 'ninguno'}</p>
+                    <p><strong>Medianos (10-19):</strong> ${categorias.medianos.length > 0 ? categorias.medianos.join(', ') : 'ninguno'}</p>
+                    <p><strong>Grandes (≥20):</strong> ${categorias.grandes.length > 0 ? categorias.grandes.join(', ') : 'ninguno'}</p>`;
+        }
+    </script>
+</body>
+</html>
