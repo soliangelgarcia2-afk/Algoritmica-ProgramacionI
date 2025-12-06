@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fundamentos de TI (Versión Estática)</title>
+    <!-- Usamos Tailwind CSS para estilos rápidos y limpios -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #f3f4f6; color: #1f2937; }
+        .code-block {
+            font-family: 'Courier New', Courier, monospace;
+            background-color: #1f2937;
+            color: #e5e7eb;
+        }
+        /* Estilos simples para las barras del gráfico estático */
+        .bar-container { background-color: #e5e7eb; border-radius: 9999px; height: 1rem; width: 100%; overflow: hidden; }
+        .bar-fill { height: 100%; border-radius: 9999px; }
+    </style>
+</head>
+<body class="py-10 px-4 sm:px-6 lg:px-8">
+
+    <div class="max-w-4xl mx-auto space-y-12">
+        
+        <!-- Header -->
+        <header class="text-center border-b border-gray-300 pb-8">
+            <h1 class="text-4xl font-bold text-gray-900 mb-2">Fundamentos de TI</h1>
+            <p class="text-lg text-gray-600">Guía de referencia rápida sobre Programación, Datos e Infraestructura.</p>
+        </header>
+
+        <!-- SECCIÓN 1: PROGRAMACIÓN -->
+        <section>
+            <div class="mb-6">
+                <span class="text-xs font-bold tracking-wider text-blue-600 uppercase">Capítulo 1</span>
+                <h2 class="text-3xl font-bold text-gray-900">Núcleo de Programación</h2>
+                <p class="mt-2 text-gray-600">Los bloques de construcción fundamentales para almacenar y manipular información.</p>
+            </div>
+
+            <!-- Concepto 1: Variables vs Constantes -->
+            <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-6 mb-6">
+                <h3 class="text-xl font-bold text-gray-800 mb-4">1 & 2. Variables vs. Constantes</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <!-- Variable -->
+                    <div class="border-l-4 border-blue-500 pl-4 bg-blue-50 p-4 rounded-r">
+                        <h4 class="font-bold text-blue-900">Variable (Mutable)</h4>
+                        <p class="text-sm text-blue-800 mb-2">Es como una caja abierta. Puedes sacar el contenido y meter algo nuevo.</p>
+                        <code class="block bg-white border border-blue-200 p-2 rounded text-sm text-gray-700">
+                            puntuacion = 10;<br>
+                            puntuacion = 20; // ✅ Permitido
+                        </code>
+                    </div>
+                    <!-- Constante -->
+                    <div class="border-l-4 border-red-500 pl-4 bg-red-50 p-4 rounded-r">
+                        <h4 class="font-bold text-red-900">Constante (Inmutable)</h4>
+                        <p class="text-sm text-red-800 mb-2">Es como una caja sellada. Una vez guardas el valor, no cambia.</p>
+                        <code class="block bg-white border border-red-200 p-2 rounded text-sm text-gray-700">
+                            PI = 3.1416;<br>
+                            PI = 4; // ❌ Error
+                        </code>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Concepto 2: Tipos de Datos -->
+            <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
+                <h3 class="text-xl font-bold text-gray-800 mb-4">3. Tipos de Datos</h3>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                    <div class="p-4 border rounded text-center bg-gray-50">
+                        <div class="text-2xl mb-1">🔢</div>
+                        <div class="font-bold">Entero (int)</div>
+                        <div class="text-xs text-gray-500 font-mono">10, -5</div>
+                    </div>
+                    <div class="p-4 border rounded text-center bg-gray-50">
+                        <div class="text-2xl mb-1">🌊</div>
+                        <div class="font-bold">Flotante</div>
+                        <div class="text-xs text-gray-500 font-mono">3.14, 0.99</div>
+                    </div>
+                    <div class="p-4 border rounded text-center bg-gray-50">
+                        <div class="text-2xl mb-1">🔤</div>
+                        <div class="font-bold">String</div>
+                        <div class="text-xs text-gray-500 font-mono">"Hola"</div>
+                    </div>
+                    <div class="p-4 border rounded text-center bg-gray-50">
+                        <div class="text-2xl mb-1">⚖️</div>
+                        <div class="font-bold">Booleano</div>
+                        <div class="text-xs text-gray-500 font-mono">True, False</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN 2: DATOS -->
+        <section>
+            <div class="mb-6 border-t border-gray-200 pt-8">
+                <span class="text-xs font-bold tracking-wider text-green-600 uppercase">Capítulo 2</span>
+                <h2 class="text-3xl font-bold text-gray-900">Inteligencia de Datos</h2>
+                <p class="mt-2 text-gray-600">Diferencia entre dato e información, su estructura y gestión.</p>
+            </div>
+
+            <!-- Estructurados vs No Estructurados -->
+            <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-6 mb-6">
+                <h3 class="text-xl font-bold text-gray-800 mb-4">4. Datos Estructurados vs. No Estructurados</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div>
+                        <h4 class="font-bold text-green-700 mb-2 border-b border-green-200 pb-1">Estructurados</h4>
+                        <p class="text-sm text-gray-600 mb-3">Organizados en filas y columnas (Tablas). Fáciles de buscar.</p>
+                        <div class="bg-gray-50 border p-2 text-xs font-mono rounded">
+                            | ID | Nombre | Edad |<br>
+                            |----|--------|------|<br>
+                            | 01 | Ana    | 25   |<br>
+                            | 02 | Luis   | 30   |
+                        </div>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-purple-700 mb-2 border-b border-purple-200 pb-1">No Estructurados</h4>
+                        <p class="text-sm text-gray-600 mb-3">Sin formato predefinido. Difíciles de organizar (Multimedia, Texto).</p>
+                        <div class="bg-gray-50 border p-2 text-xs rounded flex flex-wrap gap-2">
+                            <span class="bg-white border px-1">📄 Email</span>
+                            <span class="bg-white border px-1">📷 Foto.jpg</span>
+                            <span class="bg-white border px-1">🎵 Audio.mp3</span>
+                            <span class="bg-white border px-1">💬 Chat</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Dato vs Info -->
+            <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-6 mb-6">
+                <h3 class="text-xl font-bold text-gray-800 mb-4">5. Dato vs. Información</h3>
+                <div class="flex items-center space-x-4 bg-gray-50 p-4 rounded-lg">
+                    <div class="text-center">
+                        <div class="text-2xl font-bold text-gray-400">38</div>
+                        <div class="text-xs text-gray-500 uppercase">Dato (Crudo)</div>
+                    </div>
+                    <div class="flex-grow text-center text-gray-400">➜ + Contexto ➜</div>
+                    <div class="text-center">
+                        <div class="text-sm font-bold text-gray-800">"El paciente tiene 38°C (Fiebre)"</div>
+                        <div class="text-xs text-green-600 uppercase font-bold">Información (Útil)</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- DBMS Chart Estático -->
+            <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
+                <h3 class="text-xl font-bold text-gray-800 mb-4">7. Manejadores de Bases de Datos (DBMS)</h3>
+                <p class="text-sm text-gray-600 mb-4">Software para gestionar datos. Comparativa SQL (Relacional) vs NoSQL.</p>
+                
+                <div class="space-y-4">
+                    <!-- Item 1 -->
+                    <div>
+                        <div class="flex justify-between text-xs mb-1">
+                            <span class="font-bold">Estructura Rígida</span>
+                            <span class="text-gray-500">SQL: Alta | NoSQL: Baja</span>
+                        </div>
+                        <div class="bar-container relative">
+                            <div class="bar-fill bg-blue-500 absolute left-0" style="width: 90%;"></div>
+                            <div class="bar-fill bg-teal-400 absolute left-0 opacity-50" style="width: 30%;"></div>
+                        </div>
+                    </div>
+                    <!-- Item 2 -->
+                    <div>
+                        <div class="flex justify-between text-xs mb-1">
+                            <span class="font-bold">Escalabilidad Horizontal</span>
+                            <span class="text-gray-500">NoSQL: Alta | SQL: Media</span>
+                        </div>
+                        <div class="bar-container relative">
+                            <div class="bar-fill bg-teal-400 absolute left-0" style="width: 95%;"></div>
+                            <div class="bar-fill bg-blue-500 absolute left-0 opacity-50" style="width: 60%;"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="flex gap-4 text-xs mt-2">
+                        <span class="flex items-center"><span class="w-3 h-3 bg-blue-500 rounded-full mr-1"></span> SQL (MySQL)</span>
+                        <span class="flex items-center"><span class="w-3 h-3 bg-teal-400 rounded-full mr-1"></span> NoSQL (MongoDB)</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN 3: INFRAESTRUCTURA -->
+        <section>
+            <div class="mb-6 border-t border-gray-200 pt-8">
+                <span class="text-xs font-bold tracking-wider text-indigo-600 uppercase">Capítulo 3</span>
+                <h2 class="text-3xl font-bold text-gray-900">Arquitectura & DevOps</h2>
+                <p class="mt-2 text-gray-600">Comunicación entre sistemas y despliegue de software.</p>
+            </div>
+
+            <!-- API -->
+            <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-6 mb-6">
+                <h3 class="text-xl font-bold text-gray-800 mb-4">6. API (Interfaz de Programación)</h3>
+                <p class="text-sm text-gray-600 mb-4">Es el intermediario (mesero) que lleva tu pedido (Request) a la cocina (Server) y trae la comida (Response).</p>
+                
+                <div class="bg-slate-800 rounded-lg p-6 text-white text-center flex items-center justify-between">
+                    <div class="flex flex-col items-center">
+                        <span class="text-3xl">👤</span>
+                        <span class="text-xs mt-2">Cliente</span>
+                    </div>
+                    <div class="flex flex-col items-center flex-grow px-4">
+                        <div class="text-xs text-yellow-400 mb-1">Solicitud (GET) ➜</div>
+                        <div class="h-0.5 bg-gray-600 w-full"></div>
+                        <div class="text-xs text-green-400 mt-1">⬅ Respuesta (JSON)</div>
+                        <div class="mt-2 bg-slate-700 px-2 py-1 rounded text-xs font-mono">API REST</div>
+                    </div>
+                    <div class="flex flex-col items-center">
+                        <span class="text-3xl">☁️</span>
+                        <span class="text-xs mt-2">Servidor</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Docker -->
+            <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
+                <h3 class="text-xl font-bold text-gray-800 mb-4">8 & 9. Contenedores Docker</h3>
+                <p class="text-sm text-gray-600 mb-4">Tecnología para empaquetar software y ejecutarlo igual en cualquier máquina.</p>
+                
+                <!-- Pasos Clave para la Ejecución AÑADIDOS -->
+                <div class="mb-6 mt-4 border border-indigo-100 bg-indigo-50 p-4 rounded-lg">
+                    <h4 class="font-bold text-indigo-800 mb-3 text-lg">Pasos Clave para la Ejecución</h4>
+                    <ol class="list-decimal list-inside space-y-2 text-sm text-gray-700 ml-4">
+                        <li class="p-1">
+                            <strong>1. Definir la Imagen:</strong> Crear un archivo `Dockerfile` con las instrucciones del sistema operativo, código y dependencias.
+                        </li>
+                        <li class="p-1">
+                            <strong>2. Construir la Imagen:</strong> Ejecutar `docker build` en la terminal para generar la imagen binaria (el paquete sellado).
+                        </li>
+                        <li class="p-1">
+                            <strong>3. Ejecutar el Contenedor:</strong> Usar `docker run` para crear y encender una instancia aislada y temporal de esa imagen.
+                        </li>
+                    </ol>
+                </div>
+
+                <div class="bg-gray-900 rounded-lg shadow-lg overflow-hidden">
+                    <div class="bg-gray-800 px-4 py-2 flex items-center space-x-2">
+                        <div class="w-3 h-3 rounded-full bg-red-500"></div>
+                        <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+                        <div class="w-3 h-3 rounded-full bg-green-500"></div>
+                        <div class="ml-4 text-gray-400 text-xs font-mono">Terminal</div>
+                    </div>
+                    <div class="p-4 text-sm font-mono text-gray-300">
+                        <div class="mb-2">
+                            <span class="text-green-400">$</span> docker run --name mi-web -d -p 8080:80 nginx
+                        </div>
+                        <div class="text-gray-500 mb-2">
+                            Unable to find image 'nginx:latest' locally<br>
+                            latest: Pulling from library/nginx<br>
+                            Status: Downloaded newer image for nginx:latest
+                        </div>
+                        <div class="text-blue-300 mb-2">
+                            6d5f7a93b432... (Container ID)
+                        </div>
+                        <div>
+                            <span class="text-green-400">$</span> _
+                        </div>
+                    </div>
+                </div>
+                <p class="text-xs text-gray-500 mt-2">Ejemplo: Comando para descargar y ejecutar un servidor web Nginx aislado.</p>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="border-t border-gray-300 pt-6 text-center text-sm text-gray-500">
+            <p>Documento de referencia estático. Generado para lectura rápida.</p>
+        </footer>
+    </div>
+
+</body>
+</html>
