@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estructuras de Control Estáticas</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f7f9fb;
+            color: #1e293b;
+        }
+        .container {
+            max-width: 900px;
+        }
+        .code-block {
+            background-color: #1e293b;
+            color: #94a3b8;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            margin-top: 0.75rem;
+            overflow-x: auto;
+            white-space: pre-wrap;
+            font-size: 0.875rem;
+        }
+        .section-header {
+            border-bottom: 2px solid #3b82f6;
+            padding-bottom: 0.5rem;
+            margin-top: 2.5rem;
+        }
+    </style>
+</head>
+<body class="p-4 sm:p-8">
+    <div class="container mx-auto bg-white p-6 sm:p-10 rounded-xl shadow-2xl">
+        <h1 class="text-4xl font-bold text-center text-blue-600 mb-6">Estructuras de Control de Flujo (Explicación Estática)</h1>
+        <p class="text-lg text-gray-700 mb-8 text-center">
+            Estas estructuras permiten que los programas tomen decisiones y repitan tareas en función de condiciones.
+        </p>
+
+        <!-- Sección de Estructuras Condicionales -->
+        <h2 class="text-2xl font-semibold section-header text-gray-800">1. Condicionales (Decisión)</h2>
+        <p class="mt-4 text-gray-600">Estas estructuras evalúan una condición y, basándose en si es verdadera o falsa, ejecutan un bloque de código específico.</p>
+
+        <!-- IF-ELSE -->
+        <div class="mt-6 p-4 border border-gray-200 rounded-lg">
+            <h3 class="text-xl font-semibold text-gray-800">if-else</h3>
+            <p class="mt-2 text-gray-600">Si la condición del `if` es verdadera, se ejecuta el primer bloque. Si es falsa, se ejecuta el bloque `else`.</p>
+            <div class="code-block">
+                // Ejemplo: Verificar si hace calor
+                const temperatura = 28;
+
+                if (temperatura > 25) {
+                    // Bloque ejecutado si la condición es VERDADERA (28 > 25)
+                    console.log("¡Hace calor! Necesitas aire acondicionado.");
+                } else {
+                    // Bloque ejecutado si la condición es FALSA
+                    console.log("El clima es agradable o frío.");
+                }
+            </div>
+            <p class="mt-3 text-sm text-gray-500">Resultado esperado: ¡Hace calor! Necesitas aire acondicionado.</p>
+        </div>
+
+        <!-- IF-ELSEIF-ELSE -->
+        <div class="mt-6 p-4 border border-gray-200 rounded-lg">
+            <h3 class="text-xl font-semibold text-gray-800">if-elseif</h3>
+            <p class="mt-2 text-gray-600">Permite evaluar múltiples condiciones secuencialmente. Se ejecuta el primer bloque cuya condición sea verdadera, ignorando el resto.</p>
+            <div class="code-block">
+                // Ejemplo: Asignar una calificación
+                const nota = 85;
+
+                if (nota >= 90) {
+                    console.log("Calificación: A (Excelente)");
+                } else if (nota >= 80) {
+                    // Esta condición se evalúa y ejecuta (85 >= 80)
+                    console.log("Calificación: B (Sobresaliente)");
+                } else if (nota >= 70) {
+                    console.log("Calificación: C (Aceptable)");
+                } else {
+                    console.log("Calificación: D (Necesita mejorar)");
+                }
+            </div>
+            <p class="mt-3 text-sm text-gray-500">Resultado esperado: Calificación: B (Sobresaliente).</p>
+        </div>
+
+        <!-- SWITCH -->
+        <div class="mt-6 p-4 border border-gray-200 rounded-lg">
+            <h3 class="text-xl font-semibold text-gray-800">switch</h3>
+            <p class="mt-2 text-gray-600">Compara una única expresión con varios valores (`case`). El `default` se ejecuta si ninguna coincide. El `break` es crucial para salir del `switch`.</p>
+            <div class="code-block">
+                // Ejemplo: Mensajes según el día
+                const dia = "Miércoles";
+                let mensaje = "";
+
+                switch (dia) {
+                    case "Lunes":
+                        mensaje = "Empezando la semana.";
+                        break;
+                    case "Viernes":
+                        mensaje = "¡Casi fin de semana!";
+                        break;
+                    default:
+                        // Este bloque se ejecuta si dia no es Lunes ni Viernes
+                        mensaje = "Día intermedio de la semana.";
+                        break;
+                }
+                console.log(mensaje);
+            </div>
+            <p class="mt-3 text-sm text-gray-500">Resultado esperado: Día intermedio de la semana.</p>
+        </div>
+
+        <!-- Sección de Estructuras Repetitivas (Bucles) -->
+        <h2 class="text-2xl font-semibold section-header text-gray-800 mt-10">2. Bucles (Repetición)</h2>
+        <p class="mt-4 text-gray-600">Los bucles ejecutan un bloque de código repetidamente mientras una condición se cumpla.</p>
+
+        <!-- WHILE -->
+        <div class="mt-6 p-4 border border-gray-200 rounded-lg">
+            <h3 class="text-xl font-semibold text-gray-800">while</h3>
+            <p class="mt-2 text-gray-600">El bucle `while` verifica la condición **antes** de cada iteración. Si la condición es falsa inicialmente, nunca se ejecuta.</p>
+            <div class="code-block">
+                // Ejemplo: Contar de 0 a 3
+                let contador = 0;
+                let output = "Conteo con while: ";
+
+                while (contador < 4) { // Condición se evalúa al inicio
+                    output += contador + " ";
+                    contador++; // Asegura que el bucle termine
+                }
+                console.log(output);
+            </div>
+            <p class="mt-3 text-sm text-gray-500">Resultado esperado: Conteo con while: 0 1 2 3</p>
+        </div>
+
+        <!-- DO-WHILE -->
+        <div class="mt-6 p-4 border border-gray-200 rounded-lg">
+            <h3 class="text-xl font-semibold text-gray-800">do-while</h3>
+            <p class="mt-2 text-gray-600">Garantiza que el cuerpo del bucle se ejecute **al menos una vez** antes de verificar la condición al final.</p>
+            <div class="code-block">
+                // Ejemplo: El valor inicial (5) hace la condición final falsa (5 < 5), pero se ejecuta una vez.
+                let i = 5;
+                let output = "Conteo con do-while: ";
+
+                do {
+                    output += i + " "; // Se ejecuta aquí (i=5)
+                    i++; // Ahora i es 6
+                } while (i < 5); // Condición es falsa (6 < 5)
+
+                console.log(output);
+            </div>
+            <p class="mt-3 text-sm text-gray-500">Resultado esperado: Conteo con do-while: 5</p>
+        </div>
+
+        <!-- FOR -->
+        <div class="mt-6 p-4 border border-gray-200 rounded-lg">
+            <h3 class="text-xl font-semibold text-gray-800">for</h3>
+            <p class="mt-2 text-gray-600">Ideal cuando se conoce el número exacto de iteraciones. Agrupa la inicialización, la condición de parada y el incremento.</p>
+            <div class="code-block">
+                // Ejemplo: Recorrer 4 veces
+                let output = "Iteraciones: ";
+                
+                for (let j = 0; j < 4; j++) {
+                    output += `Paso ${j+1} `;
+                }
+                console.log(output);
+            </div>
+            <p class="mt-3 text-sm text-gray-500">Resultado esperado: Iteraciones: Paso 1 Paso 2 Paso 3 Paso 4</p>
+        </div>
+
+        <!-- FOREACH (map/for...of/forEach) -->
+        <div class="mt-6 p-4 border border-gray-200 rounded-lg">
+            <h3 class="text-xl font-semibold text-gray-800">forEach (Iteración de colecciones)</h3>
+            <p class="mt-2 text-gray-600">Es una manera simplificada de iterar sobre cada elemento de una colección (como un array) sin tener que gestionar el índice manualmente.</p>
+            <div class="code-block">
+                // Ejemplo: Procesar elementos de un array
+                const colores = ["Rojo", "Verde", "Azul"];
+                let output = "Colores: ";
+
+                colores.forEach(function(color) {
+                    output += color + ", ";
+                });
+                console.log(output);
+            </div>
+            <p class="mt-3 text-sm text-gray-500">Resultado esperado: Colores: Rojo, Verde, Azul,</p>
+        </div>
+
+    </div>
+</body>
+</html>
